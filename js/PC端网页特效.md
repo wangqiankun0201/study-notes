@@ -123,3 +123,29 @@
 
 
 
+### 节流阀
+
+利用回调函数改变当前事件的执行状态
+
+flag=true,false
+
+
+
+### 逻辑中断应用
+
+
+
+```js
+if(callback){
+    callback()
+}
+==
+callback && callback();
+```
+
+
+
+### 返回顶部
+
+`window.scroll(x,y)`
+
