@@ -102,3 +102,108 @@ use demo;
 | datetime      | 日期时间'2008-12-2 22:06:44' |
 | timestamp     | 自动存储记录修改时间         |
 
+## 管理表
+
+### 查看当前操作的数据库有哪些表
+
+show tables;
+
+### 创建表
+
+create table 表名（
+
+字段名 字段类型 [not null] [auto_increment],
+
+字段名 字段类型，
+
+primary key(字段名)
+
+）
+
+
+
+create table student(
+
+id int not null,
+
+name varchar(100),
+
+age int(2),
+
+primary key(id)
+
+)
+
+### 修改表
+
+#### 给表添加一个字段
+
+alter table 表名 add column 字段名 字段类型；
+
+
+
+alter table student add column sex varchar(2);
+
+
+
+#### 给表添加多个字段
+
+alter table 表名 add 字段名 字段类型，add 字段名 字段类型；
+
+
+
+alter table student add a int add b int,add c int;
+
+#### 修改字段数据类型
+
+alter table 表名 modify column 字段名 字段类型；
+
+
+
+alter table student modify column sex char(4);
+
+#### 修改字段的名称
+
+alter table 表名 change column 原字段名 新字段名 字段的数据类型；
+
+
+
+alter table student change column a a1 int;
+
+
+
+#### 删除表的一到多个字段
+
+alter table 表名 drop column 字段名；
+
+alter table 表名 drop column 字段名，drop column 字段名；
+
+
+
+alter table student drop column a1;
+
+alter table student drop column b,drop column c;
+
+
+
+#### 修改表名
+
+alter table 原表名 rename to 新表名;
+
+
+
+alter table student rename to stu;
+
+
+
+### 删除表
+
+drop table 表名
+
+drop table student;
+
+### 查看表结构
+
+describe 表名;
+
+describe student;
