@@ -207,3 +207,114 @@ drop table student;
 describe 表名;
 
 describe student;
+
+
+
+## 管理数据
+
+### 查询表的所有数据
+
+select * from 表名
+
+
+
+select * from student;
+
+
+
+### 给表插入数据
+
+insert into 表名 values(字段1的值，字段2的值,......)；
+
+insert into student value(1,'张三',15,'男')；
+
+
+
+insert into 表名（字段1，字段2，...字段n）values（字段1的值，字段2的值，.....字段n的值）；
+
+insert into 表名（字段1，字段3，字段5）values（字段1的值，字段3的值，字段5的值）；
+
+insert into student(id,name,age) values(2,'李四',15);
+
+
+
+
+
+insert into 表名 values (字段1的值，字段2的值，....字段n的值),
+
+(字段1的值，字段2的值，....，字段n的值),
+
+.....
+
+(字段1的值，字段2的值，.....,字段n的值);
+
+insert into student values(4,'lucky',15,'女'),(5,'小明',15,'男'),(6,'小红',16,‘女)；
+
+==在插入一个数据时，如果一个字段是自动递增的，可以不用插入这个字段的值，而由数据库自己填充计算。==
+
+
+
+### 修改数据
+
+#### 修改一到多个指定字段的所有行的值
+
+update 表名 set 字段名 = 值,字段名 = 值，...,字段名 = 值；
+
+updata student set class = '二班';
+
+
+
+#### 按条件修改指定字段的值
+
+updata 表名 set 字段名 = 值 where 字段名 = 值；
+
+
+
+update student set sex = '男' where id = 2;
+
+#### 按条件修改一到多个指定字段的所有行的值
+
+==如果不加where 条件，会改变当前所有行的数据==
+
+
+
+update 表名 set 字段名 = 值，字段名=值，...，字段名 = 值 where 字段名  = 值；
+
+
+
+update student set name = '张三',age = 12,sex = '男',class = '一班' where id = 3;
+
+
+
+### 删除表
+
+#### 按条件删除
+
+delete from 表名 where 字段名 = 值；
+
+delete form student where id = 2;
+
+
+
+#### 整体删除
+
+删除表当前的所有行数据
+
+delete from 表名；
+
+delete from student;
+
+==如果表中有字段是字段递增类型的，使用delete删除全表后，自动递增的起始点保留。==
+
+==如果想要让自动递增也回归初始状态，需要把表drop掉，然后重新建表。==
+
+==如果表中有字段是字段递增类型的时候，删除中间的某条数据，不会影响递增的叠加==
+
+## 查询数据
+
+### 简单查询
+
+### 查询所有列
+
+
+
